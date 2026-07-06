@@ -25,7 +25,9 @@ Python, pandas, NumPy, SQLAlchemy, pyodbc, SQL Server, T-SQL, scikit-learn, stat
 Analiza obejmuje kraje UE-27 oraz lata 2008-2024. Dane wejściowe nie są częścią repozytorium - należy pobrać je z Eurostatu i wskazać lokalną ścieżkę w konfiguracji skryptów.
 
 ## Struktura projektu
-
+```md
+```text
+```
 .
 ├── Python/
 │   ├── ETL.py
