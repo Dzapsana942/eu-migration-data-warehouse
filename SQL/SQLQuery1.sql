@@ -114,19 +114,19 @@ SELECT * FROM V_Saldo_Migracji WHERE ID_kraju = 1;
 
 -- Pokazuje wszystkie prognozy migracji posortowane wg kraju i roku
 -- (caly zbior prognoz 2025-2029, obie metody: ARIMA/Holt i RandomForest)
---ID_kraju = 1 — to Austria (w Twojej Dim_Kraj kraje s¹ ponumerowane alfabetycznie po kodzie, AT jest pierwsze)
---ID_czasu = 18 — to rok 2025 (bo lata historyczne 2008-2024 maj¹ ID 1-17, a prognoza zaczyna siê od ID 18)
---ID_typu_migracji — 1 to imigracja, 2 to emigracja
+--ID_kraju = 1 â€” to Austria (w Twojej Dim_Kraj kraje sÂ¹ ponumerowane alfabetycznie po kodzie, AT jest pierwsze)
+--ID_czasu = 18 â€” to rok 2025 (bo lata historyczne 2008-2024 majÂ¹ ID 1-17, a prognoza zaczyna siÃª od ID 18)
+--ID_typu_migracji â€” 1 to imigracja, 2 to emigracja
 
---Holt(trend liniowy) — patrzy tylko na historiê tej jednej liczby (np. ile osób emigrowa³o z Austrii ka¿dego roku 2008-2024) i kontynuuje ten sam kierunek zmian. Jeœli liczba ros³a z roku na rok, Holt zak³ada ¿e dalej bêdzie ros³a w podobnym tempie.
---RandomForest(PKB+bezrobocie) — to inne podejœcie, uczenie maszynowe. Zamiast patrzeæ tylko na sam¹ historiê migracji, bierze pod uwagê dodatkowo PKB i stopê bezrobocia danego kraju i na tej podstawie zgaduje wynik.
---Dlaczego dla tego samego roku/kraju s¹ dwie ró¿ne liczby?
---Bo to dwie niezale¿ne prognozy tej samej rzeczywistoœci — jak dwóch ró¿nych ekspertów, którzy inaczej licz¹ tê sam¹ rzecz.
+--Holt(trend liniowy) â€” patrzy tylko na historiÃª tej jednej liczby (np. ile osÃ³b emigrowaÂ³o z Austrii kaÂ¿dego roku 2008-2024) i kontynuuje ten sam kierunek zmian. JeÅ“li liczba rosÂ³a z roku na rok, Holt zakÂ³ada Â¿e dalej bÃªdzie rosÂ³a w podobnym tempie.
+--RandomForest(PKB+bezrobocie) â€” to inne podejÅ“cie, uczenie maszynowe. Zamiast patrzeÃ¦ tylko na samÂ¹ historiÃª migracji, bierze pod uwagÃª dodatkowo PKB i stopÃª bezrobocia danego kraju i na tej podstawie zgaduje wynik.
+--Dlaczego dla tego samego roku/kraju sÂ¹ dwie rÃ³Â¿ne liczby?
+--Bo to dwie niezaleÂ¿ne prognozy tej samej rzeczywistoÅ“ci â€” jak dwÃ³ch rÃ³Â¿nych ekspertÃ³w, ktÃ³rzy inaczej liczÂ¹ tÃª samÂ¹ rzecz.
 --Np. wiersz 1 i 2: dla Austrii (ID_kraju=1), rok 2025 (ID_czasu=18), emigracja (typ=2):
---Holt mówi: 83 045 osób
---RandomForest mówi: 76 784 osoby
---Ró¿nica miêdzy nimi (~6 tys.) pokazuje, ¿e metody siê nie do koñca zgadzaj¹ — 
---co jest normalne i ciekawe do skomentowania w pracy: nie ma jednej "prawdziwej" prognozy, s¹ ró¿ne podejœcia z ró¿nymi za³o¿eniami.
+--Holt mÃ³wi: 83 045 osÃ³b
+--RandomForest mÃ³wi: 76 784 osoby
+--RÃ³Â¿nica miÃªdzy nimi (~6 tys.) pokazuje, Â¿e metody siÃª nie do koÃ±ca zgadzajÂ¹ â€” 
+--co jest normalne i ciekawe do skomentowania w pracy: nie ma jednej "prawdziwej" prognozy, sÂ¹ rÃ³Â¿ne podejÅ“cia z rÃ³Â¿nymi zaÂ³oÂ¿eniami.
 SELECT * FROM Fact_PrognozaMigracji ORDER BY ID_kraju, ID_czasu;
 
 --tabele
